@@ -1,4 +1,4 @@
-package com.web.backend.trabalho.entities;
+package com.web.backend.trabalho.model.entities;
 
 import jakarta.persistence.*;
 
