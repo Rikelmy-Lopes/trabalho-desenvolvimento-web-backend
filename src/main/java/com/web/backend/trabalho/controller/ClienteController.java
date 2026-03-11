@@ -1,5 +1,6 @@
 package com.web.backend.trabalho.controller;
 
+import com.web.backend.trabalho.exceptions.NaoEncontradoException;
 import com.web.backend.trabalho.model.entities.Cliente;
 import com.web.backend.trabalho.model.services.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class ClienteController {
     public Cliente buscarPorId(@PathVariable Long id) {
         Cliente cliente = this.clienteService.buscarPorId(id);
         if (cliente == null) {
-            throw new RuntimeException("Cliente não encontrado");
+            throw new NaoEncontradoException("Cliente não encontrado!");
         }
 
         return cliente;

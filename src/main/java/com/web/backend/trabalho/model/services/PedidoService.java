@@ -1,5 +1,6 @@
 package com.web.backend.trabalho.model.services;
 
+import com.web.backend.trabalho.dto.PedidoDTO;
 import com.web.backend.trabalho.model.entities.Pedido;
 import com.web.backend.trabalho.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,13 @@ import java.util.List;
 public class PedidoService {
     @Autowired
     private PedidoRepository pedidoRepository;
-    
-    public void cadastrar(Pedido pedido) {
-        this.pedidoRepository.save(pedido);
+    @Autowired
+    private ClienteService clienteService;
+    @Autowired
+    private ProdutoService produtoService;
+
+    public void cadastrar(PedidoDTO pedidoDTO) {
+        //this.pedidoRepository.save();
     }
 
     public Pedido buscarPorId(Long id) {

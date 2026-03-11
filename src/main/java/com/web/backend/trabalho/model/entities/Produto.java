@@ -1,6 +1,8 @@
 package com.web.backend.trabalho.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 
@@ -11,12 +13,15 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank
     @Column(nullable = false)
     private String nome;
 
+    @NotNull
     @Column(nullable = false)
     private BigDecimal preco;
 
+    @NotNull
     @Column(nullable = false)
     private Boolean estoque;
 

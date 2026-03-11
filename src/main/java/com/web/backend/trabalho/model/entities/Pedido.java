@@ -1,6 +1,7 @@
 package com.web.backend.trabalho.model.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pedidos")
@@ -16,7 +17,8 @@ public class Pedido {
     @ManyToOne
     @JoinColumn(name = "produtoId", nullable = false)
     private Produto produto;
-
+    
+    @NotNull
     @Column(nullable = false)
     private Integer quantidade;
 
