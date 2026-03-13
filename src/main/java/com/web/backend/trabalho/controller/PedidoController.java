@@ -1,5 +1,6 @@
 package com.web.backend.trabalho.controller;
 
+import com.web.backend.trabalho.dto.PedidoDTO;
 import com.web.backend.trabalho.exceptions.NaoEncontradoException;
 import com.web.backend.trabalho.model.entities.Pedido;
 import com.web.backend.trabalho.model.services.PedidoService;
@@ -15,8 +16,8 @@ public class PedidoController {
     private PedidoService pedidoService;
 
     @PostMapping
-    public void cadastrar(@RequestBody Pedido pedido) {
-        this.pedidoService.cadastrar(pedido);
+    public void cadastrar(@RequestBody PedidoDTO pedidoDTO) {
+        this.pedidoService.cadastrar(pedidoDTO);
     }
 
     @GetMapping("/{id}")

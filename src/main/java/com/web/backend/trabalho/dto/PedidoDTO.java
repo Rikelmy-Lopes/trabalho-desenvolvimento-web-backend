@@ -1,4 +1,4 @@
 package com.web.backend.trabalho.dto;
 
-public record PedidoDTO(Long clienteId, Long idProduto, Integer quantidade) {
+public record PedidoDTO(Long idCliente, Long idProduto, Integer quantidade) {
 }

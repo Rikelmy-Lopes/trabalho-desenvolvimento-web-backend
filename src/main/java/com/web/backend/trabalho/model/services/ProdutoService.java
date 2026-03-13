@@ -1,11 +1,13 @@
 package com.web.backend.trabalho.model.services;
 
+import com.web.backend.trabalho.exceptions.NaoEncontradoException;
 import com.web.backend.trabalho.model.entities.Produto;
 import com.web.backend.trabalho.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService {
@@ -17,7 +19,12 @@ public class ProdutoService {
     }
 
     public Produto buscarPorId(Long id) {
-        return this.produtoRepository.getReferenceById(id);
+        Optional<Produto> optionalProduto = this.produtoRepository.findById(id);
+        if (optionalProduto.isEmpty()) {
+            throw new NaoEncontradoException("Produto não encontrado");
+        }
+
+        return optionalProduto.get();
     }
 
     public List<Produto> buscarTodos() {
@@ -25,7 +32,9 @@ public class ProdutoService {
     }
 
     public void deletar(Long id) {
-        this.produtoRepository.deleteById(id);
+        Produto produto = this.buscarPorId(id);
+
+        this.produtoRepository.delete(produto);
     }
 
 }
