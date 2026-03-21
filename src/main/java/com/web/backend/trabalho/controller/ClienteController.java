@@ -36,7 +36,8 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable final Long id) {
+    public String deletar(@PathVariable final Long id) {
         this.clienteService.deletar(id);
+        return "Cliente com id: " + id + " deletado com sucesso!";
     }
 }

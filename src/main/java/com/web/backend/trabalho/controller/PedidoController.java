@@ -36,7 +36,8 @@ public class PedidoController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable Long id) {
+    public String deletar(@PathVariable Long id) {
         this.pedidoService.deletar(id);
+        return "Pedido com id: " + id + " deletado com sucesso!";
     }
 }

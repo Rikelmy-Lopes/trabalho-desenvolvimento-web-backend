@@ -35,7 +35,8 @@ public class ProdutoController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletar(@PathVariable final Long id) {
+    public String deletar(@PathVariable final Long id) {
         this.produtoService.deletar(id);
+        return "Produto com id: " + id + " deletado com sucesso!";
     }
 }
